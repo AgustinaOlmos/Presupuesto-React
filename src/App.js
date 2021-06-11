@@ -33,21 +33,17 @@ function App() {
     }
   }, [gasto, creargasto, gastos, restante])
 
-/*   // Eliminar gastos por ID
-  const eliminarGasto = gastoBorrar => {
+
+  // Eliminar gastos por ID
+  const eliminarGasto = gastoEliminado => {
     // Eliminar
-    const gastoEliminado = gastos.filter(gasto => gasto.id !== gastoBorrar.id)
-    guardarGastos(gastoEliminado)
+    const gastosAll = gastos.filter(gasto => gasto.id !== gastoEliminado.id)
+    guardarGastos(gastosAll)
 
     //Actualizar el Restante
-    const actualizarRestante = restante + gastoBorrar.cantidadgasto
+    const actualizarRestante = restante + gastoEliminado.cantidadgasto
     guardarRestante(actualizarRestante)
   }
-  
-  https://github.com/gabrielmaster/presupuesto-react/tree/master/src
-  
-  */
-
 
   return (
     <div className="container">
@@ -76,6 +72,7 @@ function App() {
                 <div className="one-half column">
                   <Listado
                     gastos={gastos}
+                    eliminarGasto={eliminarGasto}
                   />
                   <ControlPresupuesto
                     presupuesto={presupuesto}
